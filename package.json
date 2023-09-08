@@ -6,8 +6,8 @@
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "client:dev": "vite",
     "server:dev": "nodemon src/server.js",
-    "server:build": "babel --verbose --out-dir dist --only 'src/server.js,src/lib/' src",
-    "client:build": "vite build",
+    "server:build": "tsc && babel --verbose --out-dir dist --only 'src/server.js,src/lib/' src",
+    "client:build": "tsc && vite build",
     "build": "npm run server:build && npm run client:build",
     "serve": "vite preview",
     "prepare": "husky install",
@@ -38,6 +38,8 @@
     "vite": "^2.5.10"
   },
   "dependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "react": "^17.0.2",
